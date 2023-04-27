@@ -54,8 +54,8 @@ def sort_unknown(sfx, path, file):
                 rename(file, dest)
 
 
-def handle_archives():
-    parent_dir = os.getcwd()
+def handle_archives(path):
+    parent_dir = path.parent
     norm_sfx = []
     for sfx in ext["archives"]:
         norm_sfx.append(sfx.casefold())
@@ -118,7 +118,7 @@ def sort(path):
         else:
             sort(path)
 
-        handle_archives()
+        handle_archives(path)
 
         handle_output(dest)
 
