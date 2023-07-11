@@ -15,7 +15,8 @@ ext = {
     "other": [],
 }
 
-output = "target"
+# output = "target"
+output = input('Please enter output folder name: ')
 
 
 def rename(file, path):
@@ -95,11 +96,11 @@ def handle_output(output):
                     alien_ext.append(file.suffix)
         output_dict.update({item.name: output_list})
 
-    print(f"Target Directory Items Dict: {output_dict}")
-    print(
-        f"Target Directory Known Extentions List: {set(output_ext)}",
-    )
-    print(f"Target Directory Alien Extentions List: {set(alien_ext)}")
+    # print(f"Target Directory Items Dict: {output_dict}")
+    # print(
+    #     f"Target Directory Known Extentions List: {set(output_ext)}",
+    # )
+    # print(f"Target Directory Alien Extentions List: {set(alien_ext)}")
 
 
 def sort(path):
@@ -118,11 +119,13 @@ def sort(path):
         else:
             sort(path)
 
-        handle_archives(path)
+        # handle_archives(path)
 
         handle_output(dest)
 
 
 if __name__ == "__main__":
-    path = Path(sys.argv[1])
+    # path = Path(sys.argv[1])
+    path = Path(input('Enter path to folder to be sorted: '))
+    # print(f'{path=}')
     sort(path)
